@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     {
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
         float moveHorizontal = Input.GetAxis("Horizontal");
-        transform.position = Vector3.Lerp(transform.position, new Vector3(Mathf.Clamp(transform.position.x + moveHorizontal, -2.5f, 2.5f),
+        transform.position = Vector3.Lerp(transform.position, new Vector3(Mathf.Clamp(transform.position.x + moveHorizontal, -2.3f, 2.3f),
         transform.position.y, transform.position.z), directionalSpeed * Time.deltaTime);
 #endif
         rgb.velocity = Vector3.forward * playerSpeed * Time.deltaTime;
