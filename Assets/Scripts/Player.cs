@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] GameObject sceneManager;
     [SerializeField] float playerSpeed = 1000f;
     [SerializeField] float directionalSpeed = 2f;
     Rigidbody rgb;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Triangle")
         {
             GetComponent<AudioSource>().PlayOneShot(damageSound, 1.0f);
+            sceneManager.GetComponent<AppInitialize>().GameOver();
         }
     }
 }
