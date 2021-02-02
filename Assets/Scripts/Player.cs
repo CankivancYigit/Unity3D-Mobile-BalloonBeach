@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] float playerSpeed = 1000f;
     [SerializeField] float directionalSpeed = 2f;
     Rigidbody rgb;
+    [SerializeField] AudioClip damageSound;
+    [SerializeField] AudioClip scoreUpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,19 @@ public class Player : MonoBehaviour
         if (Input.touchCount > 0)
         {
             transform.position = new Vector3(touch.x, transform.position.y, transform.position.z);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ScoreUp")
+        {
+            GetComponent<AudioSource>().PlayOneShot(scoreUpSound, 1.0f);
+        }  
+        
+        if (other.gameObject.tag == "Triangle")
+        {
+            GetComponent<AudioSource>().PlayOneShot(damageSound, 1.0f);
         }
     }
 }
