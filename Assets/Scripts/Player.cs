@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         transform.position.y, transform.position.z), directionalSpeed * Time.deltaTime);
 #endif
         rgb.velocity = Vector3.forward * playerSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.forward * rgb.velocity.z / 4);
         //MOBILE CONTROLS
         Vector2 touch = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10f));
         if (Input.touchCount > 0)
